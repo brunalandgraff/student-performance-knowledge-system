@@ -4,6 +4,12 @@ A knowledge-based application developed with Java and Prolog to analyse student 
 
 The system uses Prolog as its inference and data-management layer, while Java provides the command-line interface and controls the application flow.
 
+## Project Status
+
+**Completed academic project**
+
+The original submission received a final grade of **4.0 / 4.0**. This repository contains a portfolio-oriented version with reorganised source files and expanded technical documentation.
+
 ## Features
 
 - Identify students at academic risk
