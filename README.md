@@ -65,11 +65,73 @@ This repository contains a portfolio-oriented version of the original academic s
 
 ## Requirements
 
-- Java Development Kit
+- Java JDK 8 or later
 - SWI-Prolog
-- JPL configured in the local environment
+- JPL — included with the SWI-Prolog installation
 
-Detailed installation and execution instructions will be added as the project is organised for public use.
+> The SWI-Prolog installation directory may vary depending on the operating system and installation settings.
+
+## How to Run
+
+### Test the Prolog Knowledge Base
+
+Open a terminal in the `src/prolog` directory:
+
+```bash
+swipl
+```
+
+Load the system:
+
+```prolog
+?- consult('sistema.pl').
+```
+
+Example queries:
+
+```prolog
+?- listar_em_risco(L).
+?- listar_participativos(L).
+?- listar_bons(L).
+?- media_turma(M).
+?- listar_acima_media(L).
+?- listar_consistentes(L).
+```
+
+Expected results using the initial knowledge base:
+
+```text
+listar_em_risco(L).        L = [2,5]
+listar_participativos(L).  L = [1,3,4,6]
+listar_bons(L).            L = [1,3,4,6]
+media_turma(M).            M = 12.25
+listar_acima_media(L).     L = [1,3,6]
+listar_consistentes(L).    L = [1,3,6]
+```
+
+### Run the Java Interface on Windows
+
+Open PowerShell in the `src/java` directory.
+
+Add the SWI-Prolog native libraries to the current session:
+
+```powershell
+$env:PATH = "C:\Program Files\swipl\bin;" + $env:PATH
+```
+
+Compile the Java classes:
+
+```powershell
+javac -cp ".;C:\Program Files\swipl\lib\jpl.jar" *.java
+```
+
+Run the application:
+
+```powershell
+java "-Djava.library.path=C:\Program Files\swipl\bin" -cp ".;C:\Program Files\swipl\lib\jpl.jar" Aplicacao ../prolog/sistema.pl
+```
+
+The paths may need to be adjusted if SWI-Prolog is installed in a different directory.
 
 ## Author
 
