@@ -32,6 +32,21 @@ The application separates responsibilities between two programming paradigms:
 - **Java:** command-line interface, input validation and application flow
 - **JPL:** communication between Java and the Prolog inference engine
 
+## System Flow
+
+```mermaid
+flowchart TD
+    U[User] -->|Selects an operation| J[Java CLI]
+    J -->|Sends query| I[JPL Integration Layer]
+    I -->|Calls Prolog predicates| P[Prolog Inference Engine]
+    P -->|Reads and updates facts| K[(Knowledge Base)]
+
+    K -.->|Returns facts| P
+    P -.->|Returns result| I
+    I -.->|Returns result| J
+    J -.->|Displays result| U
+```
+
 ## Project Structure
 
 ```text
