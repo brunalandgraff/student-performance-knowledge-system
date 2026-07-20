@@ -3,7 +3,7 @@
 public class Aplicacao {
 
     public static void main(String[] args) {
-        String caminhoSistema = "../../prolog/sistema.pl";
+        String caminhoSistema = "../prolog/sistema.pl";
 
         if (args.length > 0 && !args[0].trim().isEmpty()) {
             caminhoSistema = args[0].trim();
